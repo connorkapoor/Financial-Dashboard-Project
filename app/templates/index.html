@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
     <h1>Login</h1>
-    <form action="{{ url_for('login') }}" method="post">
+    <form action="{{ url_for('login_view') }}" method="post">
         {{ form.hidden_tag() }}
         <p>
             {{ form.username.label }}<br>
@@ -17,6 +18,6 @@
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p><input type="submit" value="Login"></p>
+        <p><a href="{{ url_for('register') }}">Register</a></p>
     </form>
-</body>
-</html>
+{% endblock %}
